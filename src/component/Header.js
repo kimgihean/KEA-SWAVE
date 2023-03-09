@@ -30,6 +30,7 @@ export default function App() {
               )
             })}
           </NavDropdown>
+          <Nav.Link href="/calendar">Calendar</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

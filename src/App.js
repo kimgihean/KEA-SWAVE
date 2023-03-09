@@ -8,6 +8,7 @@ import './App.css';
 import Vision from './component/Vision';
 import About from './component/About';
 import Content from './component/Contents';
+import Calendar from './component/Calendar';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/teammate" element={<Teammate />} />
           <Route path="/teammate/:member" element={<About />} />
           <Route path="/contents" element={<Content />} />
+          <Route path="/calendar" element={<Calendar />} />
         </Routes>
         <Footer />
       </div>
