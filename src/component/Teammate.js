@@ -58,7 +58,7 @@ function Teammate(props) {
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  K
+                  {props.icon}
                 </Avatar>
               }
               action={
@@ -77,7 +77,7 @@ function Teammate(props) {
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                좋은 프로그램에 좋은 사람들과 함께 해서 영광입니다. 열심히 하겠습니다!
+              {props.info.split("\n").map((txt) => (<>{txt}<br/></>))}
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -98,15 +98,9 @@ function Teammate(props) {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph>about Me</Typography>
                 <Typography paragraph>
-                  가천대학교 컴퓨터공학과 4학년 재학
+                  {props.desc.split("\n").map((txt) => (<>{txt}<br/></>))}
                 </Typography>
-                <Typography paragraph>
-                  경험한 언어
-                  Java ,Python ,JS ,C , C++
-                </Typography>
-
               </CardContent>
             </Collapse>
           </CardMain>
@@ -119,15 +113,15 @@ function Teammate(props) {
 
 function App() {
   const teammates1 = [
-    { number: "201", name: "강준희", info: "**학번 ~과 강준희입니다.", desc: "1", img: profile1 },
-    { number: "201", name: "김기현", info: "**학번 ~과 김기현입니다.", desc: "2", img: profile2 },
-    { number: "201", name: "김성국", info: "**학번 ~과 김성국입니다.", desc: "3", img: profile3 },
+    { number: "201835610", icon: "K", name: "강준희", info: "좋은 프로그램에 좋은 사람들과 함께 해서 영광입니다.\n열심히 하겠습니다!", desc: "About Me\n201835610 컴퓨터공학과\nJava ,Python ,JS ,C , C++", img: profile1 },
+    { number: "201732505", icon: "K", name: "김기현", info: "협업과 소통을 즐기는 개발자가 되겠습니다.", desc: "About Me\n201732506 글로벌경영학사, 소프트웨어공학사\nJava, SpringBoot, JPA", img: profile2 },
+    { number: "201835422", icon: "K", name: "김성국", info: "한학기 열심히 하겠습니다!	", desc: "About Me\n201835422 소프트웨어학과\nC Java Python", img: profile3 },
   ];
 
   const teammates2 = [
-    { number: "201835494", name: "이승섭", info: "18학번 소프트웨어학과 이승섭입니다.", desc: "4", img: profile4 },
-    { number: "201", name: "전강훈", info: "**학번 ~과 전광훈입니다.", desc: "5", img: profile5 },
-    { number: "201", name: "함건욱", info: "**학번 ~과 함건욱입니다.", desc: "6", img: profile6 },
+    { number: "201835494", icon: "L", name: "이승섭", info: "팀에 도움이 될 수 있도록 열심히 하겠습니다. ", desc: "About Me\n201835494 소프트웨어학과\nC Python", img: profile4 },
+    { number: "201835516", icon: "J", name: "전강훈", info: "프로젝트에 적극적으로 기여하고 함께 성장하는 팀원이 되겠습니다. ", desc: "About Me\n201835516 소프트웨어학과\nC Java Python C#", img: profile5 },
+    { number: "201835546", icon: "H", name: "함건욱", info: "열심히 배워서 성장하겠습니다!!.", desc: "About Me\n201835546 소프트웨어학과\nC Java Python", img: profile6 },
   ];
 
   return (
@@ -137,10 +131,10 @@ function App() {
       columnCount: "3"
     }}>
       <div>
-        {teammates1.map((student) => <Teammate name={student.name} number={student.number} info={student.info} desc={student.desc} img={student.img} />)}
+        {teammates1.map((student) => <Teammate name={student.name} icon={student.icon} number={student.number} info={student.info} desc={student.desc} img={student.img} />)}
       </div>
       <div>
-        {teammates2.map((student) => <Teammate name={student.name} number={student.number} info={student.info} desc={student.desc} img={student.img} />)}
+        {teammates2.map((student) => <Teammate name={student.name} icon={student.icon} number={student.number} info={student.info} desc={student.desc} img={student.img} />)}
       </div>
     </div>
   );

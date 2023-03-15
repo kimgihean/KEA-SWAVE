@@ -1,4 +1,5 @@
 import logo_white from '../image/logo_white.png';
+import Typewriter from 'typewriter-effect';
 
 export default function App() {
   return (
@@ -6,7 +7,14 @@ export default function App() {
       <img src={logo_white} style={{
         height: '75vh'
       }}alt="BigCo Inc. logo"/>
-      <h2 id="HeaderFont">We Should Create Wave in Software</h2>
+      <Typewriter id="HeaderFont"
+        options={{
+          strings: ['We Should Create Wave in Software'],
+          autoStart: true,
+          loop: true,
+          wrapperClassName: "typeWriterText",
+        }}
+      />
     </div>
   );
 }

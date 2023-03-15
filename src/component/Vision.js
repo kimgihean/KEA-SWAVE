@@ -6,7 +6,7 @@ import {
   SubTitle,
   TitleContainer,
   Img,
-  SecondContainer, Element, Title2
+  SecondContainer, Element, Title2, span
 } from "./css/VisionStyle";
 
 import Modal from "./Modal";
@@ -31,6 +31,17 @@ import {
 import { disableScroll, enableScroll } from "./Hooks/ScrollPrevent";
 
 const Vision = () => {
+
+  const TitleColorEvent = () => {
+    return(
+      <>
+      <span style={tick ? {color : '#00BFFF'}:{}}>S</span>
+      <span style={{color : '#00BFFF'}}>W</span>
+      <span style={!tick ? {color : '#00BFFF'}:{}}>AVE</span>
+      </>
+    );
+  }
+
   const items = [
     {
       "index": 1,
@@ -60,7 +71,29 @@ const Vision = () => {
   ]
   const [modalOn, setModalOn] = useState("false");
   const [onMouse, setOnMouse] = useState("false");
+  const [tick, setTick] = useState(true);
   const [item, setItem] = useState();
+
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+  }
+
+  useInterval(()=>{
+    setTick((prev)=>{return !prev;});
+  },2000);
 
   // Scroll Prevent
   useEffect(() => {
@@ -89,7 +122,7 @@ const Vision = () => {
             onMouseEnter={() => setOnMouse("true")}
             onMouseLeave={() => setOnMouse("false")}
           >
-            SWAVE
+            <TitleColorEvent/>
           </Title>
           <SubTitle onmouse={onMouse}>SoftWare로 세상에 파도를 일으키자</SubTitle>
         </TitleContainer>
