@@ -1,26 +1,33 @@
+import logo from './logo.svg';
+import Header from './component/Header';
+import Footer from './component/Footer';
+import Teammate from './component/Teammate';
+import Home from './component/Home';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Teammate from "./pages/Teammate";
-import Vision from './pages/Vision';
-import NoPage from './pages/NoPage';
-import Custom from './pages/Custom';
+import Vision from './component/Vision';
+import About from './component/About';
+import Content from './component/Contents';
+
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path ="/" element = {<Layout />}>
-        <Route index element = {<Home/>}/>
-        <Route path ="teammate" element = {<Teammate />}/>
-        <Route path ="vision" element = {<Vision />}/>
-        <Route path ="custom" element = {<Custom/>}/>
-        <Route path ="*" element = {<NoPage />}/>
-        </Route>
-      </Routes>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={ <Home />}>
+          </Route>
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/teammate" element={<Teammate />} />
+          <Route path="/teammate/:member" element={<About />} />
+          <Route path="/contents" element={<Content />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
+
 
 export default App;

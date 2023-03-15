@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/*폰트 저장*/
+@font-face {
+  font-family: "SWAVE_Nanum";
+  src: url("./component/font/NanumSquareNeo-eHv.ttf");
+}
+
+#HeaderFont {
+  font-family: "SWAVE_Nanum";
+}
+
+.typeWriterText {
+  font-size: 20px;
+  font-family: "SWAVE_Nanum";
+}
