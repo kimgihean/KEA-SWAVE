@@ -8,6 +8,7 @@ import './App.css';
 import Vision from './component/Vision';
 import About from './component/About';
 import Content from './component/Contents';
+import Survey from './component/Survey';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/teammate" element={<Teammate />} />
           <Route path="/teammate/:member" element={<About />} />
           <Route path="/contents" element={<Content />} />
+          <Route path="/survey" element={<Survey />} />
         </Routes>
         <Footer />
       </div>

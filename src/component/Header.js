@@ -21,6 +21,7 @@ export default function App() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/vision">Vision</Nav.Link>
           <Nav.Link href="/contents">Contents</Nav.Link>
+          <Nav.Link href="/survey">Survey</Nav.Link>
           <NavDropdown title="Teammates" id="basic-nav-dropdown">
             <NavDropdown.Item href="/teammate">Teammates</NavDropdown.Item>
             <NavDropdown.Divider />
